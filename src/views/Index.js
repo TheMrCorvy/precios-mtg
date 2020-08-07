@@ -79,6 +79,325 @@ class Index extends React.Component {
 			behavior: "smooth",
 		});
 	}
+	cambiarPagina(evento, accion) {
+		evento.preventDefault();
+		if (accion === "mas") {
+			if (this.state.paginaActual !== this.state.ultimaPagina) {
+				this.setState(
+					{
+						paginaActual: this.state.paginaActual + 1,
+					},
+					() => this.cargarCartas()
+				);
+			} else {
+				console.log("pagina actual: " + this.state.paginaActual);
+				console.log("ultima pagina: " + this.state.ultimaPagina);
+				console.log("estas en la ultima pagina");
+			}
+		} else if (accion === "menos") {
+			if (this.state.paginaActual !== 1) {
+				this.setState(
+					{
+						paginaActual: this.state.paginaActual - 1,
+					},
+					() => this.cargarCartas()
+				);
+			} else {
+				console.log("pagina actual: " + this.state.paginaActual);
+				console.log("estas en la primera pagina");
+			}
+		} else {
+			this.setState(
+				{
+					paginaActual: accion,
+				},
+				() => this.cargarCartas()
+			);
+		}
+	}
+
+	renderNumeros() {
+		switch (this.state.paginaActual) {
+			case 1:
+				return (
+					<React.Fragment>
+						<PaginationItem active>
+							<PaginationLink>1</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 2)}
+						>
+							<PaginationLink href="#">2</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 3)}
+						>
+							<PaginationLink href="#">3</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 4)}
+						>
+							<PaginationLink href="#">4</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 5)}
+						>
+							<PaginationLink href="#">5</PaginationLink>
+						</PaginationItem>
+						<PaginationItem disabled>
+							<PaginationLink href="#">...</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(e, this.state.ultimaPagina)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina}
+							</PaginationLink>
+						</PaginationItem>
+					</React.Fragment>
+				);
+
+			case 2:
+				return (
+					<React.Fragment>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 1)}
+						>
+							<PaginationLink href="#">1</PaginationLink>
+						</PaginationItem>
+						<PaginationItem active>
+							<PaginationLink>2</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 3)}
+						>
+							<PaginationLink href="#">3</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 4)}
+						>
+							<PaginationLink href="#">4</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 5)}
+						>
+							<PaginationLink href="#">5</PaginationLink>
+						</PaginationItem>
+						<PaginationItem disabled>
+							<PaginationLink href="#">...</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(e, this.state.ultimaPagina)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina}
+							</PaginationLink>
+						</PaginationItem>
+					</React.Fragment>
+				);
+
+			case this.state.ultimaPagina:
+				return (
+					<React.Fragment>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 4
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 4}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 3
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 3}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 2
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 2}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 1
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 1}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem active>
+							<PaginationLink>
+								{this.state.ultimaPagina}
+							</PaginationLink>
+						</PaginationItem>
+					</React.Fragment>
+				);
+			case this.state.ultimaPagina - 1:
+				return (
+					<React.Fragment>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 4
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 4}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 3
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 3}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.ultimaPagina - 2
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina - 2}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem active>
+							<PaginationLink>
+								{this.state.ultimaPagina - 1}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem>
+							<PaginationLink
+								href="#"
+								onClick={(e) =>
+									this.cambiarPagina(
+										e,
+										this.state.ultimaPagina
+									)
+								}
+							>
+								{this.state.ultimaPagina}
+							</PaginationLink>
+						</PaginationItem>
+					</React.Fragment>
+				);
+			default:
+				return (
+					<React.Fragment>
+						<PaginationItem
+							onClick={(e) => this.cambiarPagina(e, 1)}
+						>
+							<PaginationLink href="#">1</PaginationLink>
+						</PaginationItem>
+						<PaginationItem disabled>
+							<PaginationLink href="#">...</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.paginaActual - 2
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.paginaActual - 2}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.paginaActual - 1
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.paginaActual - 1}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem active>
+							<PaginationLink>
+								{this.state.paginaActual}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.paginaActual + 1
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.paginaActual + 1}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(
+									e,
+									this.state.paginaActual + 2
+								)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.paginaActual + 2}
+							</PaginationLink>
+						</PaginationItem>
+						<PaginationItem disabled>
+							<PaginationLink href="#">...</PaginationLink>
+						</PaginationItem>
+						<PaginationItem
+							onClick={(e) =>
+								this.cambiarPagina(e, this.state.ultimaPagina)
+							}
+						>
+							<PaginationLink href="#">
+								{this.state.ultimaPagina}
+							</PaginationLink>
+						</PaginationItem>
+					</React.Fragment>
+				);
+		}
+	}
+
 	render() {
 		return (
 			<>
@@ -139,30 +458,30 @@ class Index extends React.Component {
 												</Col>
 												<Col md="4" className="mb-5">
 													<Pagination listClassName="justify-content-end">
-														<PaginationItem
-															disabled
-														>
-															<PaginationLink href="#">
+														<PaginationItem>
+															<PaginationLink
+																href="#"
+																onClick={(e) =>
+																	this.cambiarPagina(
+																		e,
+																		"menos"
+																	)
+																}
+															>
 																Anterior
 															</PaginationLink>
 														</PaginationItem>
-														<PaginationItem active>
-															<PaginationLink href="#">
-																1
-															</PaginationLink>
-														</PaginationItem>
+														{this.renderNumeros()}
 														<PaginationItem>
-															<PaginationLink href="#">
-																2
-															</PaginationLink>
-														</PaginationItem>
-														<PaginationItem>
-															<PaginationLink href="#">
-																3
-															</PaginationLink>
-														</PaginationItem>
-														<PaginationItem>
-															<PaginationLink href="#">
+															<PaginationLink
+																href="#"
+																onClick={(e) =>
+																	this.cambiarPagina(
+																		e,
+																		"mas"
+																	)
+																}
+															>
 																Siguiente
 															</PaginationLink>
 														</PaginationItem>
