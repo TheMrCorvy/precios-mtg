@@ -14,6 +14,8 @@ import {
 import IndexNavbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
 
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
+
 class Index extends React.Component {
 	constructor(props) {
 		super(props);
@@ -452,9 +454,26 @@ class Index extends React.Component {
 										<Col md="12">
 											<Row>
 												<Col md="8" className="mb-5">
-													<Button className="btn-success">
+													{/* <Button className="btn-success">
 														Imprimir Esta Página
-													</Button>
+													</Button> */}
+													<ReactHTMLTableToExcel
+														id="botonExportarExcel"
+														className="btn btn-success"
+														table="tablaAImprimir"
+														filename={
+															"pagina " +
+															this.state
+																.paginaActual +
+															" de la tabla de precios"
+														}
+														sheet={
+															"pagina" +
+															this.state
+																.paginaActual
+														}
+														buttonText="Imprimir Esta Página"
+													/>
 												</Col>
 												<Col md="4" className="mb-5">
 													<Pagination listClassName="justify-content-end">
@@ -490,7 +509,7 @@ class Index extends React.Component {
 											</Row>
 										</Col>
 										<Col md="12">
-											<Table>
+											<Table id="tablaAImprimir">
 												<thead className="text-primary">
 													<tr>
 														<th className="text-white">
