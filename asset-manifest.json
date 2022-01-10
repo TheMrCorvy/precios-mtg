@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/precios-mtg/static/css/main.6669b886.chunk.css",
+    "main.js": "/precios-mtg/static/js/main.a2d32aab.chunk.js",
+    "main.js.map": "/precios-mtg/static/js/main.a2d32aab.chunk.js.map",
+    "runtime-main.js": "/precios-mtg/static/js/runtime-main.7b2c5ab0.js",
+    "runtime-main.js.map": "/precios-mtg/static/js/runtime-main.7b2c5ab0.js.map",
+    "static/js/2.71673d91.chunk.js": "/precios-mtg/static/js/2.71673d91.chunk.js",
+    "static/js/2.71673d91.chunk.js.map": "/precios-mtg/static/js/2.71673d91.chunk.js.map",
+    "index.html": "/precios-mtg/index.html",
+    "precache-manifest.9b9607905e4e7bc7575c59f9d418aa78.js": "/precios-mtg/precache-manifest.9b9607905e4e7bc7575c59f9d418aa78.js",
+    "service-worker.js": "/precios-mtg/service-worker.js",
+    "static/css/main.6669b886.chunk.css.map": "/precios-mtg/static/css/main.6669b886.chunk.css.map",
+    "static/js/2.71673d91.chunk.js.LICENSE.txt": "/precios-mtg/static/js/2.71673d91.chunk.js.LICENSE.txt",
+    "static/media/blk-design-system-react.scss?v=1.1.0": "/precios-mtg/static/media/square5.ff004a0e.png",
+    "static/media/nucleo-icons.css": "/precios-mtg/static/media/nucleo.f0b489a5.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b2c5ab0.js",
+    "static/js/2.71673d91.chunk.js",
+    "static/css/main.6669b886.chunk.css",
+    "static/js/main.a2d32aab.chunk.js"
+  ]
+}
